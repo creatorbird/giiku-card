@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f4f7f5" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#101613" media="(prefers-color-scheme: dark)">
   <meta name="description" content="HIRO（ヒロ）のプロフィール">
@@ -54,10 +54,15 @@
       -webkit-tap-highlight-color: transparent;
     }
 
+    /* 画面ぴったりの高さで縦に並べ、余白は内側で吸収する（下に空白が出ない） */
     main {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      min-height: 100dvh;
       max-width: 440px;
       margin: 0 auto;
-      padding: calc(40px + env(safe-area-inset-top, 0px)) 24px calc(32px + env(safe-area-inset-bottom, 0px));
+      padding: 28px 24px 20px;
     }
 
     /* ========== 主役：草（コントリビューション）で描いた H ========== */
@@ -66,7 +71,8 @@
       grid-template-columns: repeat(11, 1fr);
       grid-template-rows: repeat(7, auto);
       gap: 5px;
-      margin-bottom: 36px;
+      max-width: 300px;
+      margin-bottom: 26px;
     }
 
     .grass i {
@@ -112,7 +118,7 @@
     }
 
     .bio {
-      margin: 14px 0 32px;
+      margin: 10px 0 26px;
       font-size: 1rem;
       color: var(--sub);
       word-break: keep-all;
@@ -196,7 +202,8 @@
     }
 
     .footer {
-      margin-top: 40px;
+      margin-top: auto;
+      padding-top: 24px;
       font-size: 0.75rem;
       color: var(--sub);
     }
